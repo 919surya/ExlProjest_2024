@@ -17,6 +17,7 @@ public class DashboardPage {
 	@FindBy(how = How.XPATH, using = "/html/body/div[1]/section/div/div[2]/div/div/header/div")WebElement DASHBOARD_HEADER_ELEMENT;
 	@FindBy(how = How.XPATH, using = " /html/body/div[1]/aside[1]/div/nav/ul[2]/li[2]/a/span")WebElement CUSTOMER_MENU_ELEMENT;
 	@FindBy(how = How.XPATH, using = "//*[@id=\"customers\"]/li[2]/a/span")WebElement ADDCUSTOMER_MENU_ELEMENT;
+	@FindBy(how = How.XPATH, using = "//*[@id=\"customers\"]/li[3]/a/span")WebElement LIST_CUSTOMERS_MENU_ELEMENT;
 
 	public void validateDashboardPage(String validationText) {
 		Assert.assertEquals(DASHBOARD_HEADER_ELEMENT.getText(), validationText, "Dashboard page is not available");
@@ -28,6 +29,12 @@ public class DashboardPage {
 
 	public void clickAddCustomerPage() {
 		ADDCUSTOMER_MENU_ELEMENT.click();
+	}
+	public void clickListCustomersPage()  {
+//		Thread.sleep(3000);
+		LIST_CUSTOMERS_MENU_ELEMENT.click();
+		
+
 	}
 
 }

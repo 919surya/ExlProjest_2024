@@ -37,6 +37,7 @@ public class AddCustomerPage extends BasePage{
 	
 	public void insertFullName(String fullName) {
 //		grnerateRandomNo(999);
+		
 		FULL_NAME_ELEMENT.sendKeys(fullName+grnerateRandomNo(999));			
 	}
 	
