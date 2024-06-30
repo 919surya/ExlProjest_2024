@@ -6,11 +6,13 @@ import org.testng.annotations.Test;
 
 import page.AddCustomerPage;
 import page.DashboardPage;
+import page.ListCustomersPage;
 import page.LoginPage;
 import util.BrowserFactory;
 import util.ExcelReader;
 
-public class AddCustomerTest{
+public class ListCustomerTest {
+	
 
 	WebDriver driver;
 	
@@ -33,7 +35,7 @@ public class AddCustomerTest{
 	String group=exlRead.getCellData("AddContactInfo", "Group", 2);
 	
     @Test
-	public void userShouldBeAbleToCreateNewCustomer() {
+	public void userShouldBeAbleToOpenListCustomerPage()  {
     	
 
 		driver = BrowserFactory.init();
@@ -61,12 +63,15 @@ public class AddCustomerTest{
 		addCustomerPage.selectGroup(group);
 		addCustomerPage.clickSaveButton();
 		
-//		dashboardPage.clickListCustomersPage();
+		dashboardPage.clickListCustomersPage();
 		
 		
-				
-//		BrowserFactory.tearDown();
-				
-	}
-    
+		ListCustomersPage listCustomer=PageFactory.initElements(driver, ListCustomersPage.class);
+		listCustomer.validationOfCustomerListPage("Customer List");
+		
+//		listCustomer.validateInsrtedCustomer();
+
+		listCustomer.validateInsrtedCustomerAndDelete();
+		
+    }
 }
